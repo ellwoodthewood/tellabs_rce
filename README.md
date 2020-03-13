@@ -35,3 +35,9 @@ After 3 failed authentication attempts the connect back to the netcat listener o
 
 
 Due to customer concerns with the critical nature of the networking infrastructure, further testing beyond the above was not possible, and the customer immediately contacted the vendor to work on a patch.
+
+
+## Recommendations:
+Contact the vendor for a patch
+
+Move management interfaces to specific VLAN and ensure only the minimum number of personnel can access that interface
