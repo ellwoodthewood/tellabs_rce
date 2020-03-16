@@ -15,7 +15,7 @@ Release: ONT709.2.50.12
 
 Date: 180722
 
-Steps to reproduce were rather simple, and based on the older Telnet "ShellShock" vulnerability.
+Steps to reproduce were based on the older Telnet "ShellShock" vulnerability.
 
 It's known that the following methods all produced a netcat reverse shell as root:
 Steps used to exploit:
