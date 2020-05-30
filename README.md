@@ -1,4 +1,4 @@
-# tellabs_rce
+# tellabs_rce CVE-2019-19148
 Tellabs OLT RCE
 
 During a recent penetration test, a vulnerability in the way Tellabs handles incoming authentication/authorization was discovered which allowed us to bypass the authentication methods on the Tellabs OLT 1150 device. It is highly suspected that this vulnerability exists in other devices as well.
