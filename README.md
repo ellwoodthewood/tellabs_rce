@@ -46,6 +46,8 @@ Move management interfaces to specific VLAN and ensure only the minimum number o
 
 ## [update]From the vendor:
 This Vulnerability applies to the following list of versions of the Tellabs 1150, 1134, and 1131 OLT software:
+
 This Vulnerability is resolved in the following software versions of the Tellabs 1150, 1134, and 1131 OLT software: SR30.1 and SR31.1
+
 Tellabs has addressed this issue in the SR30.1 and SR31.1 release on February 18, 2020. These versions are available on the Tellabs Portal.
 
