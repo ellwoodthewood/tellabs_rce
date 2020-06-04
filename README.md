@@ -1,4 +1,4 @@
-# tellabs_rce CVE-2019-19148
+# tellabs_rce CVE-2019-19148 [updated information from the vendor at the bottom]
 Tellabs OLT RCE
 
 During a recent penetration test, a vulnerability in the way Tellabs handles incoming authentication/authorization was discovered which allowed us to bypass the authentication methods on the Tellabs OLT 1150 device. It is highly suspected that this vulnerability exists in other devices as well.
@@ -41,3 +41,10 @@ Due to customer concerns with the critical nature of the networking infrastructu
 Contact the vendor for a patch
 
 Move management interfaces to specific VLAN and ensure only the minimum number of personnel can access that interface
+
+
+From the vendor:
+This Vulnerability applies to the following list of versions of the Tellabs 1150, 1134, and 1131 OLT software:
+This Vulnerability is resolved in the following software versions of the Tellabs 1150, 1134, and 1131 OLT software: SR30.1 and SR31.1
+Tellabs has addressed this issue in the SR30.1 and SR31.1 release on February 18, 2020. These versions are available on the Tellabs Portal.
+
